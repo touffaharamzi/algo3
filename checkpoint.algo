@@ -1,0 +1,77 @@
+// with PROCEDURE
+ALGORITHM produitscalaire
+VAR
+    v1,v2:ARRAY_OF FLOAT[];
+    n,ps:INTEGER:=0;
+     PROCEDURE produitscalaire(v1,v2,n,VAR ps) //passage par reference
+    VAR 
+        j,k:INTEGER:=0
+    BEGIN
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            FOR k FROM i TO i+1 STEP 1  DO
+                ps:=ps+v1[j]*v2[k]
+                break;
+        END_FOR
+        END_FOR
+    END
+BEGIN
+     i:=0;
+    WRITE("the length of the vector") ;
+    READ(n);
+    REPEAT
+        WRITE("give the element of first vector");
+        READ(v1[i]);
+        i:=i+1;
+        UNTIL (i=n-1);
+    i:=0;
+    REPEAT
+        WRITE("give the element of second set");
+        READ(v2[i]);
+        i:=i+1;
+        UNTIL (i=n-1);
+
+    produitscalaire(v1,v2,n,ps);
+    IF (ps=0) THEN
+        WRITE("v1 et v2 sont orthogonal")
+    END_IF   
+END
+// with FUNCTION
+ALGORITHM produitscalaire
+VAR
+    v1,v2:ARRAY_OF FLOAT[];
+    n,ps:INTEGER:=0;
+    FUNCTION produitscalaire(v1,v2,n) : FLOAT //passage par valeur
+    VAR
+        j,k:INTEGER:=0
+        x:FLOAT:=0
+    BEGIN
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            FOR k FROM i TO i+1 STEP 1  DO
+                x:=x+v1[j]*v2[k]
+                break;
+        END_FOR
+        END_FOR
+        RETURN x ;
+    END
+    
+BEGIN
+    set_instructions  i:=0;
+    WRITE("the length of the vector") ;
+    READ(n);
+    REPEAT
+        WRITE("give the element of first vector");
+        READ(v1[i]);
+        i:=i+1;
+        UNTIL (i=n-1);
+    i:=0;
+    REPEAT
+        WRITE("give the element of second set");
+        READ(v2[i]);
+        i:=i+1;
+        UNTIL (i=n-1);
+
+    ps:= produitscalaire(v1,v2,n);
+    IF (ps=0) THEN
+        WRITE("v1 et v2 sont orthogonal")
+    END_IF   
+END
